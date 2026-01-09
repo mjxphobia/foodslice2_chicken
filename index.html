@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-<title>FOOD SLICE - ROUND 1</title>
+<title>FOOD SLICE - ROUND 2</title>
 
 <style>
   /* =========================================================
@@ -309,16 +309,22 @@ document.addEventListener('touchmove', (e)=>{ e.preventDefault(); }, { passive:f
    ✅ 쉽게 수정하는 곳(다른 사이트로 복사할 때 여기만 건드리면 됨)
    ========================================================= */
 const CONFIG = {
-  ROUND_MS: 15000,
+  // ✅ 제한시간: 마지막 인식을 15초 안에 하면 성공(1초 딜레이는 타이머에서 제외됨)
+  ROUND_MS: 20000,
 
-  // 이번 라운드: 2번 인식
-  REQUIRED_SLICES: 2,
+  // ✅ required: 몇 번 "인식(썰림)" 해야 성공인지 (이번 라운드: 2번)
+  // 요구사항: potato1 -> (1회) -> potato2 -> (2회) -> potato3 -> 1초 후 성공 화면
+  REQUIRED_SLICES: 3,
 
+  // ✅ 이미지 파일(제각각 이름 OK) : 기본/1회/2회 결과 이미지
+  // 요청대로 photato1~3.png 사용
   STAGES: [
-    "static/potato1.png",
-    "static/potato2.png",
-    "static/potato3.png"
-  ],
+    "static/chicken1.png", // 기본
+    "static/chicken2.png", // 1회 성공 시
+    "static/chicken3.png",  // 2회 성공 시(마지막 이미지)
+    "static/chicken4.png" 
+  ],  
+
 
   HIT_FOOD_R: 38,
   HIT_KNIFE_R: 55,
